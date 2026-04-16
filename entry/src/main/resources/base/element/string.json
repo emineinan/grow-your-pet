@@ -2,18 +2,75 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "module description"
-    }
-  ,{
+      "value": "Grow Your Pet - A HarmonyOS Wearable Game"
+    },
+    {
       "name": "EntryAbility_desc",
-      "value": "description"
-    },{
+      "value": "Main Ability for Grow Your Pet"
+    },
+    {
       "name": "EntryAbility_label",
       "value": "Isabella"
     },
     {
       "name": "reason",
-      "value": "REASON"
+      "value": "Required for notifications and reminders"
+    },
+    {
+      "name": "cat_name",
+      "value": "Cat Isabella"
+    },
+    {
+      "name": "wash_her_love_her",
+      "value": "Wash Her Love Her"
+    },
+    {
+      "name": "feed_her",
+      "value": "Feed Her"
+    },
+    {
+      "name": "cleaning_status",
+      "value": "Cleaning: %d%%"
+    },
+    {
+      "name": "love_status",
+      "value": "Love: %d%%"
+    },
+    {
+      "name": "hungry_status",
+      "value": "Hungry: %d%%"
+    },
+    {
+      "name": "wash_me",
+      "value": "Wash Me!"
+    },
+    {
+      "name": "feed_me",
+      "value": "Feed Me!"
+    },
+    {
+      "name": "love_me",
+      "value": "Love me!"
+    },
+    {
+      "name": "im_happy",
+      "value": "I am happy!"
+    },
+    {
+      "name": "reminder_title",
+      "value": "Isabella"
+    },
+    {
+      "name": "reminder_content",
+      "value": "I need you!!"
+    },
+    {
+      "name": "reminder_expired_content",
+      "value": "Isabella needed you.."
+    },
+    {
+      "name": "close",
+      "value": "close"
     }
   ]
 }

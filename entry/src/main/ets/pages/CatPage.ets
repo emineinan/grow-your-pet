@@ -1,5 +1,5 @@
 import { Cat } from '../components/Cat';
-import { CustomCatButton } from '../components/CustomCatButton';
+import { startPurrVibration } from '../PermissionUtils';
 
 @Entry
 @Component
@@ -9,66 +9,87 @@ export struct CatPage {
   @StorageLink('love') loveStatus: number = 0;
 
   love() {
-    if (this.loveStatus <= 80) {
-      this.loveStatus = this.loveStatus + 20;
-      AppStorage.setOrCreate('love', this.loveStatus)
-      console.info(this.loveStatus.toString())
+    if (this.loveStatus <= 90) {
+      this.loveStatus = this.loveStatus + 10;
+    } else {
+      this.loveStatus = 100;
     }
+    startPurrVibration();
   }
+
   wash() {
-    if (this.clean <= 80) {
-      this.clean = this.clean + 20;
-      AppStorage.setOrCreate('wash', this.clean)
-      console.info(this.clean.toString())
+    if (this.clean <= 90) {
+      this.clean = this.clean + 10;
+    } else {
+      this.clean = 100;
     }
   }
+
   feed() {
-    if (this.hungry <= 80) {
-      this.hungry = this.hungry + 20
-      AppStorage.setOrCreate('hungry', this.hungry)
-      console.info(this.hungry.toString())
+    if (this.hungry <= 90) {
+      this.hungry = this.hungry + 10;
+    } else {
+      this.hungry = 100;
     }
   }
 
   build() {
-    Row() {
-      Column() {
-        CustomCatButton({
-          icon: 'app.media.soap',
-          onClickMethod: () => {
-            this.wash()
-          }
-        })
-      }.height('20%')
-      .width('20%')
-      .alignItems(HorizontalAlign.Center)
+    Stack() {
+      // Background Cat
+      Cat()
+        .width('100%')
+        .height('100%')
 
+      // Controls - positioned for circular watch faces
       Column() {
-        Cat()
-          .height('70%')
-        CustomCatButton({
-          icon: 'app.media.fish',
-          onClickMethod: () => {
-            this.feed()
+        Row() {
+          Button() {
+            Image($r('app.media.soap'))
+              .width(30)
+              .height(30)
           }
-        })
-          .height('16%')
-          .width('40%')
+          .type(ButtonType.Circle)
+          .backgroundColor('#80000000') // Semi-transparent black
+          .width(48)
+          .height(48)
+          .onClick(() => this.wash())
+
+          Blank().width('40%')
+
+          Button() {
+            Image($r('app.media.heart'))
+              .width(30)
+              .height(30)
+          }
+          .type(ButtonType.Circle)
+          .backgroundColor('#80000000')
+          .width(48)
+          .height(48)
+          .onClick(() => this.love())
+        }
+        .width('100%')
+        .justifyContent(FlexAlign.Center)
+
+        Blank().height('50%')
+
+        Button() {
+          Image($r('app.media.fish'))
+            .width(30)
+            .height(30)
+        }
+        .type(ButtonType.Circle)
+        .backgroundColor('#80000000')
+        .width(48)
+        .height(48)
+        .onClick(() => this.feed())
       }
-      .width('60%')
-      .alignItems(HorizontalAlign.Center)
-      .justifyContent(FlexAlign.Start)
-
-      Column() {
-        CustomCatButton({
-          icon: 'app.media.heart',
-          onClickMethod: () => {
-            this.love()
-          }
-        }).margin({ top: 16 })
-      }.height('20%')
-      .width('20%')
-      .alignItems(HorizontalAlign.Center)
-    }.height('100%').justifyContent(FlexAlign.Center)
+      .width('100%')
+      .height('100%')
+      .justifyContent(FlexAlign.Center)
+      .padding(10)
+    }
+    .width('100%')
+    .height('100%')
+    .backgroundColor($r('app.color.page_background'))
   }
 }
