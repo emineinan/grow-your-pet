@@ -3,6 +3,38 @@
     {
       "name": "start_window_background",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "page_background",
+      "value": "#000000"
+    },
+    {
+      "name": "primary_pink",
+      "value": "#E75480"
+    },
+    {
+      "name": "secondary_pink",
+      "value": "#C12B78"
+    },
+    {
+      "name": "clean_blue",
+      "value": "#00BFFF"
+    },
+    {
+      "name": "hungry_orange",
+      "value": "#FF7F00"
+    },
+    {
+      "name": "indicator_color",
+      "value": "#FFC0CB"
+    },
+    {
+      "name": "text_main",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "text_sub",
+      "value": "#CCCCCC"
     }
   ]
 }

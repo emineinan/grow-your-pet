@@ -9,10 +9,10 @@ struct Index {
     Swiper() {
       StatusPage()
       CatPage()
-    }.backgroundColor('#EFEFE8')
-    .indicator(DotIndicator.dot().color(Color.Pink).selectedColor('#E75480'))
+    }
+    .backgroundColor($r('app.color.page_background'))
+    .indicator(DotIndicator.dot().color($r('app.color.indicator_color')).selectedColor($r('app.color.primary_pink')))
     .autoPlay(false)
-    .borderColor(Color.Pink)
     .height('100%')
     .width('100%')
   }
