@@ -1,6 +1,7 @@
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
 import { DbHelper } from '../utils/DbHelper';
 import { SensorHelper } from '../utils/SensorHelper';
 
@@ -22,7 +23,7 @@ export default class EntryAbility extends UIAbility {
     this.loadData();
   }
 
-  private async loadData() {
+  private async loadData(): Promise<void> {
     await DbHelper.getInstance().init(this.context);
     const status = await DbHelper.getInstance().getStatus();
     if (status) {
@@ -40,7 +41,7 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    windowStage.loadContent('pages/Index', (err) => {
+    windowStage.loadContent('pages/Index', (err: BusinessError) => {
       if (err.code) {
         hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
         return;

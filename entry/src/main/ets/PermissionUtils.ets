@@ -61,7 +61,7 @@ export function startVibration(usage: string, duration: number) {
       duration: duration
     }, {
       id: 0,
-      usage: usage as 'alarm' | 'ringtone' | 'notification' | 'unknown'
+      usage: usage
     }, (error: BusinessError) => {
       if (error) {
         console.error(`Failed to start vibration. Code: ${error.code}, message: ${error.message}`);
